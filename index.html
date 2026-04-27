@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sinergia F.C · Escuela de Fútbol 5 Femenino · Resistencia, Chaco</title>
+<meta name="description" content="Escuela de fútbol 5 femenino en Resistencia, Chaco. Entrenamos Lunes, Miércoles y Viernes en Cancha Seven RN16 KM 13.6. Inscribite online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bordo: #7A1C28;
+    --bordo-light: #9B2535;
+    --bordo-dark: #4A0F18;
+    --bordo-pale: #F6E8EA;
+    --gris-claro: #F7F7F5;
+    --gris-medio: #E5E4E0;
+    --blanco: #FFFFFF;
+    --texto: #1A1A1A;
+    --texto-suave: #55534E;
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:var(--font-body); color:var(--texto); background:var(--blanco); overflow-x:hidden; }
+
+  /* NAV */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(15,15,15,0.97); backdrop-filter:blur(10px);
+    border-bottom:2px solid var(--bordo);
+    padding:0 1.5rem; display:flex; align-items:center;
+    justify-content:space-between; height:62px;
+  }
+  .nav-logo { font-family:var(--font-display); font-size:1.6rem; font-weight:900; color:#fff; letter-spacing:2px; text-decoration:none; text-transform:uppercase; display:flex; align-items:center; gap:.6rem; }
+  .nav-escudo { width:34px; height:34px; background:var(--bordo); border-radius:50% 50% 44% 44%; display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:900; color:#fff; flex-shrink:0; }
+  .nav-logo span { color:var(--bordo-light); }
+  .nav-links { display:flex; gap:1.4rem; list-style:none; align-items:center; }
+  .nav-links a { font-family:var(--font-display); font-size:.85rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.65); text-decoration:none; transition:color .2s; }
+  .nav-links a:hover { color:#fff; }
+  .nav-cta { background:var(--bordo)!important; color:#fff!important; padding:.32rem .9rem; border-radius:3px; }
+  @media(max-width:720px){ .nav-links { display:none; } }
+
+  /* HERO */
+  #inicio {
+    min-height:100vh; padding-top:62px;
+    background:linear-gradient(160deg,#0A0A0A 0%,#1C080E 45%,#0D1A08 100%);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; text-align:center;
+  }
+  .hero-lines { position:absolute; inset:0; opacity:.035; background-image:repeating-linear-gradient(0deg,transparent,transparent 48px,rgba(255,255,255,.5) 48px,rgba(255,255,255,.5) 49px),repeating-linear-gradient(90deg,transparent,transparent 48px,rgba(255,255,255,.5) 48px,rgba(255,255,255,.5) 49px); }
+  .hero-glow1 { position:absolute; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(122,28,40,.3) 0%,transparent 70%); top:-120px; right:-120px; }
+  .hero-glow2 { position:absolute; width:400px; height:400px; border-radius:50%; background:radial-gradient(circle,rgba(30,60,15,.25) 0%,transparent 70%); bottom:-80px; left:-80px; }
+  .hero-cesped { position:absolute; bottom:0; left:0; right:0; height:160px; background:linear-gradient(to top,rgba(20,50,8,.55) 0%,transparent 100%); pointer-events:none; }
+  .hero-content { position:relative; padding:2rem 1.5rem; max-width:820px; }
+  .hero-badge { display:inline-flex; align-items:center; gap:.55rem; background:rgba(122,28,40,.35); border:1px solid rgba(155,37,53,.4); color:rgba(255,255,255,.85); font-family:var(--font-display); font-size:.76rem; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; padding:.38rem 1.15rem; border-radius:2px; margin-bottom:1.75rem; }
+  .hero-badge::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--bordo-light); animation:pulso 2s infinite; }
+  @keyframes pulso { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.65)} }
+  .hero-escudo-grande { width:108px; height:108px; border-radius:50% 50% 44% 44%; background:linear-gradient(160deg,var(--bordo) 0%,var(--bordo-dark) 100%); border:3px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; box-shadow:0 8px 32px rgba(122,28,40,.5); }
+  .hero-title { font-family:var(--font-display); font-size:clamp(4rem,11vw,8rem); font-weight:900; line-height:.88; text-transform:uppercase; letter-spacing:3px; color:#fff; margin-bottom:.6rem; }
+  .hero-title .fc { color:var(--bordo-light); }
+  .hero-sub { font-family:var(--font-display); font-size:clamp(.9rem,2.5vw,1.25rem); font-weight:400; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.38); margin-bottom:.85rem; }
+  .hero-slogan { font-size:1.05rem; color:rgba(255,255,255,.68); line-height:1.78; margin-bottom:2.5rem; max-width:500px; margin-left:auto; margin-right:auto; }
+  .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:1.25rem; }
+  .btn-main { display:inline-flex; align-items:center; gap:.5rem; background:var(--bordo); color:#fff; font-family:var(--font-display); font-size:.95rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:.88rem 1.9rem; border-radius:3px; text-decoration:none; border:none; cursor:pointer; transition:background .2s,transform .15s; }
+  .btn-main:hover { background:var(--bordo-light); transform:translateY(-2px); }
+  .btn-ghost { display:inline-flex; align-items:center; gap:.5rem; background:transparent; color:#fff; font-family:var(--font-display); font-size:.95rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:.88rem 1.9rem; border-radius:3px; text-decoration:none; border:1px solid rgba(255,255,255,.22); cursor:pointer; transition:border-color .2s,background .2s; }
+  .btn-ghost:hover { border-color:rgba(255,255,255,.55); background:rgba(255,255,255,.05); }
+  .hero-ig { display:inline-flex; align-items:center; gap:.45rem; color:rgba(255,255,255,.45); font-family:var(--font-display); font-size:.8rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; text-decoration:none; transition:color .2s; }
+  .hero-ig:hover { color:rgba(255,255,255,.9); }
+  .hero-stats { position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); display:flex; gap:2.75rem; white-space:nowrap; }
+  .stat { text-align:center; }
+  .stat-n { font-family:var(--font-display); font-size:2.4rem; font-weight:900; color:var(--bordo-light); display:block; line-height:1; }
+  .stat-l { font-size:.68rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.38); font-weight:600; }
+
+  /* GENERAL */
+  section { padding:5rem 1.5rem; }
+  .container { max-width:1060px; margin:0 auto; }
+  .section-label { font-family:var(--font-display); font-size:.78rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--bordo); margin-bottom:.6rem; display:flex; align-items:center; gap:.7rem; }
+  .section-label::before { content:''; width:22px; height:2px; background:var(--bordo); flex-shrink:0; }
+  .section-title { font-family:var(--font-display); font-size:clamp(2rem,5vw,3.2rem); font-weight:800; text-transform:uppercase; letter-spacing:1px; line-height:1; color:var(--texto); margin-bottom:1.25rem; }
+
+  /* NOSOTROS */
+  #nosotros { background:var(--gris-claro); }
+  .nosotros-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+  .nosotros-text p { font-size:1rem; line-height:1.85; color:var(--texto-suave); margin-bottom:1rem; }
+  .nosotros-frase { font-family:var(--font-display); font-size:1.45rem; font-weight:700; color:var(--bordo); line-height:1.3; margin-bottom:1.25rem; border-left:4px solid var(--bordo); padding-left:1rem; }
+  .podes-titulo { font-family:var(--font-display); font-size:.8rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--texto-suave); margin-bottom:.85rem; margin-top:1.5rem; }
+  .podes-lista { list-style:none; display:flex; flex-direction:column; gap:.6rem; margin-bottom:1.5rem; }
+  .podes-lista li { display:flex; align-items:center; gap:.75rem; font-size:.95rem; color:var(--texto-suave); }
+  .podes-lista li::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--bordo); flex-shrink:0; }
+  .podes-lista li.sin::before { background:rgba(122,28,40,.25); }
+  .podes-lista li.sin { color:rgba(85,83,78,.5); }
+  .cancha-card { background:linear-gradient(160deg,#0D1C06,#1C080E); border-radius:8px; padding:2rem; text-align:center; border:1px solid rgba(255,255,255,.06); }
+  .cancha-field { width:100%; aspect-ratio:2/3; max-width:240px; margin:0 auto 1.4rem; border:2px solid rgba(255,255,255,.25); border-radius:4px; position:relative; overflow:hidden; background:rgba(45,80,22,.3); }
+  .cf-vline { position:absolute; width:1.5px; height:100%; left:50%; top:0; background:rgba(255,255,255,.2); }
+  .cf-circle { position:absolute; width:54px; height:54px; border:1.5px solid rgba(255,255,255,.22); border-radius:50%; top:50%; left:50%; transform:translate(-50%,-50%); }
+  .cf-goal { position:absolute; width:30px; height:10px; border:1.5px solid rgba(255,255,255,.28); left:50%; transform:translateX(-50%); }
+  .cf-goal.top { top:0; border-top:none; }
+  .cf-goal.bot { bottom:0; border-bottom:none; }
+  .dot { position:absolute; width:11px; height:11px; border-radius:50%; transform:translate(-50%,-50%); }
+  .dot.r { background:var(--bordo-light); box-shadow:0 0 6px rgba(155,37,53,.6); }
+  .dot.v { background:#4A9E2A; box-shadow:0 0 6px rgba(74,158,42,.5); }
+  .cancha-nombre { font-family:var(--font-display); font-size:1.2rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#fff; margin-bottom:.3rem; }
+  .cancha-dir { font-size:.82rem; color:rgba(255,255,255,.45); margin-bottom:1rem; }
+  .cancha-horarios { display:flex; flex-direction:column; gap:.4rem; }
+  .ch-item { display:flex; justify-content:space-between; align-items:center; padding:.45rem .75rem; background:rgba(255,255,255,.05); border-radius:3px; font-size:.85rem; }
+  .ch-dia { color:rgba(255,255,255,.6); font-weight:600; }
+  .ch-hora { font-family:var(--font-display); font-weight:700; color:#fff; font-size:.95rem; }
+  @media(max-width:720px){ .nosotros-grid{grid-template-columns:1fr} .cancha-card{display:none} }
+
+  /* STAFF */
+  #staff { background:var(--blanco); }
+  .staff-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.75rem; margin-top:2.5rem; }
+  .staff-card { border:1px solid var(--gris-medio); border-radius:6px; overflow:hidden; transition:transform .2s,box-shadow .2s; }
+  .staff-card:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.08); }
+  .staff-photo { height:230px; display:flex; align-items:center; justify-content:center; position:relative; }
+  .staff-avatar { width:90px; height:90px; border-radius:50%; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:2.4rem; font-weight:900; color:rgba(255,255,255,.9); border:3px solid rgba(255,255,255,.22); }
+  .staff-rol { position:absolute; bottom:.85rem; left:1rem; right:1rem; background:var(--bordo); color:#fff; font-family:var(--font-display); font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:.28rem .7rem; border-radius:2px; text-align:center; }
+  .staff-info { padding:1.25rem; }
+  .staff-name { font-family:var(--font-display); font-size:1.35rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:.4rem; }
+  .staff-desc { font-size:.88rem; color:var(--texto-suave); line-height:1.65; }
+  .staff-tel { display:inline-flex; align-items:center; gap:.4rem; margin-top:.85rem; font-family:var(--font-display); font-size:1rem; font-weight:700; color:var(--bordo); text-decoration:none; }
+  .staff-tel:hover { color:var(--bordo-light); }
+
+  /* SEDES */
+  #sedes { background:var(--bordo-dark); color:#fff; }
+  #sedes .section-label { color:rgba(255,255,255,.38); }
+  #sedes .section-label::before { background:rgba(255,255,255,.22); }
+  #sedes .section-title { color:#fff; }
+  .sedes-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.25rem; margin-top:2.5rem; }
+  .sede-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:6px; padding:1.75rem; transition:background .2s; }
+  .sede-card:hover { background:rgba(255,255,255,.09); }
+  .sede-num { font-family:var(--font-display); font-size:2.8rem; font-weight:900; color:var(--bordo-light); line-height:1; margin-bottom:.4rem; }
+  .sede-nombre { font-family:var(--font-display); font-size:1.35rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:.2rem; }
+  .sede-dir { font-size:.86rem; color:rgba(255,255,255,.42); margin-bottom:1.35rem; }
+  .horarios-list { display:flex; flex-direction:column; gap:.5rem; }
+  .horario-item { display:flex; justify-content:space-between; align-items:center; padding:.55rem .85rem; background:rgba(255,255,255,.05); border-radius:3px; font-size:.88rem; }
+  .hor-dia { font-weight:600; color:rgba(255,255,255,.68); }
+  .hor-hora { font-family:var(--font-display); font-size:1rem; font-weight:700; color:#fff; }
+  .sede-nota { margin-top:1rem; font-size:.78rem; color:rgba(255,255,255,.3); font-style:italic; }
+
+  /* PRECIOS */
+  #precios { background:var(--gris-claro); }
+  .precios-nota { font-size:.95rem; color:var(--texto-suave); margin-bottom:2.5rem; line-height:1.75; max-width:560px; }
+  .precios-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.25rem; align-items:start; }
+  .plan { background:var(--blanco); border:1px solid var(--gris-medio); border-radius:6px; padding:1.85rem; position:relative; transition:transform .2s,box-shadow .2s; }
+  .plan:hover { transform:translateY(-3px); box-shadow:0 14px 36px rgba(0,0,0,.07); }
+  .plan.destacado { border:2px solid var(--bordo); transform:scale(1.04); }
+  .plan.destacado:hover { transform:scale(1.04) translateY(-3px); }
+  .plan-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--bordo); color:#fff; font-family:var(--font-display); font-size:.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:.2rem .9rem; border-radius:2px; white-space:nowrap; }
+  .plan-dias { font-family:var(--font-display); font-size:.85rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--texto-suave); margin-bottom:.85rem; }
+  .plan-precio { font-family:var(--font-display); font-size:3rem; font-weight:900; line-height:1; margin-bottom:.2rem; color:var(--texto); }
+  .plan-precio span { font-size:1.5rem; color:var(--texto-suave); }
+  .plan-periodo { font-size:.82rem; color:var(--texto-suave); margin-bottom:1.35rem; }
+  .plan-features { list-style:none; display:flex; flex-direction:column; gap:.55rem; margin-bottom:1.6rem; }
+  .plan-features li { font-size:.88rem; color:var(--texto-suave); display:flex; align-items:center; gap:.55rem; }
+  .plan-features li::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--bordo); flex-shrink:0; }
+  .btn-plan { display:block; width:100%; text-align:center; padding:.82rem; border-radius:3px; font-family:var(--font-display); font-size:.9rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; text-decoration:none; cursor:pointer; border:none; transition:all .2s; }
+  .btn-outline { border:1px solid var(--bordo); color:var(--bordo); background:transparent; }
+  .btn-outline:hover { background:var(--bordo-pale); }
+  .btn-solid { background:var(--bordo); color:#fff; }
+  .btn-solid:hover { background:var(--bordo-light); }
+  .precios-aviso { margin-top:1.5rem; text-align:center; font-size:.8rem; color:var(--texto-suave); }
+
+  /* SPONSORS */
+  #sponsors { background:var(--blanco); border-top:1px solid var(--gris-medio); }
+  .sponsors-subtitulo { font-size:.95rem; color:var(--texto-suave); margin-bottom:2.5rem; max-width:500px; }
+  .sponsors-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.25rem; }
+  .sponsor-card { display:flex; flex-direction:column; align-items:center; text-align:center; padding:1.85rem 1.25rem; border:1px solid var(--gris-medio); border-radius:6px; text-decoration:none; color:var(--texto); transition:transform .2s,box-shadow .2s,border-color .2s; }
+  .sponsor-card:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.07); border-color:var(--bordo); }
+  .sponsor-logo { width:80px; height:80px; border-radius:50%; background:var(--gris-claro); border:1px solid var(--gris-medio); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:1.5rem; font-weight:900; color:var(--bordo); margin-bottom:1rem; overflow:hidden; flex-shrink:0; }
+  .sponsor-logo img { width:100%; height:100%; object-fit:contain; padding:10px; }
+  .sponsor-nombre { font-family:var(--font-display); font-size:1.1rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:.3rem; }
+  .sponsor-desc { font-size:.83rem; color:var(--texto-suave); line-height:1.55; }
+  .sponsor-tag { display:inline-block; margin-top:.65rem; font-family:var(--font-display); font-size:.68rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--bordo); background:var(--bordo-pale); padding:.2rem .65rem; border-radius:2px; }
+  .sponsors-placeholder { grid-column:1/-1; text-align:center; padding:3rem 2rem; border:2px dashed var(--gris-medio); border-radius:6px; }
+  .sponsors-placeholder p { font-size:.92rem; color:var(--texto-suave); line-height:1.75; }
+  .sponsors-placeholder strong { color:var(--bordo); }
+
+  /* INSCRIPCIÓN */
+  #inscripcion { background:var(--gris-claro); }
+  .form-layout { display:grid; grid-template-columns:1fr 1.4fr; gap:4rem; align-items:start; }
+  .form-side p { font-size:1rem; color:var(--texto-suave); line-height:1.8; margin-bottom:1.2rem; }
+  .form-pasos { display:flex; flex-direction:column; gap:.85rem; margin-top:1.5rem; }
+  .form-paso { display:flex; align-items:flex-start; gap:.75rem; font-size:.9rem; color:var(--texto-suave); line-height:1.55; }
+  .paso-num { width:28px; height:28px; background:var(--bordo); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:.82rem; font-weight:700; flex-shrink:0; }
+  .inscripcion-form { background:var(--blanco); border-radius:6px; padding:2.25rem; border:1px solid var(--gris-medio); }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:.9rem; }
+  .fg { display:flex; flex-direction:column; gap:.35rem; margin-bottom:.9rem; }
+  .fg label { font-size:.7rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--texto-suave); }
+  .fg input,.fg select,.fg textarea { padding:.7rem .95rem; border:1px solid var(--gris-medio); border-radius:3px; font-family:var(--font-body); font-size:.93rem; color:var(--texto); background:var(--blanco); outline:none; width:100%; transition:border-color .2s,box-shadow .2s; }
+  .fg input:focus,.fg select:focus,.fg textarea:focus { border-color:var(--bordo); box-shadow:0 0 0 3px rgba(122,28,40,.1); }
+  .fg textarea { resize:vertical; min-height:90px; }
+  .btn-form { width:100%; padding:1rem; background:var(--bordo); color:#fff; border:none; border-radius:3px; font-family:var(--font-display); font-size:1.05rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; cursor:pointer; transition:background .2s; margin-top:.25rem; }
+  .btn-form:hover { background:var(--bordo-light); }
+  .form-nota { font-size:.76rem; color:var(--texto-suave); text-align:center; margin-top:.75rem; }
+  .alerta { padding:.9rem 1.1rem; border-radius:4px; font-size:.9rem; font-weight:500; margin-bottom:.9rem; display:none; }
+  .alerta.ok { background:#D1FAE5; color:#065F46; border:1px solid #A7F3D0; }
+  .alerta.err { background:#FEE2E2; color:#991B1B; border:1px solid #FECACA; }
+  @media(max-width:720px){ .form-layout{grid-template-columns:1fr} .form-row{grid-template-columns:1fr} }
+
+  /* FOOTER */
+  footer { background:#0F0F0F; color:rgba(255,255,255,.5); padding:3rem 1.5rem; text-align:center; }
+  .footer-escudo { width:50px; height:50px; border-radius:50% 50% 44% 44%; background:var(--bordo); margin:0 auto .75rem; display:flex; align-items:center; justify-content:center; }
+  .footer-logo { font-family:var(--font-display); font-size:1.9rem; font-weight:900; letter-spacing:3px; color:#fff; text-transform:uppercase; margin-bottom:.35rem; }
+  .footer-logo span { color:var(--bordo-light); }
+  .footer-tag { font-size:.72rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:2rem; }
+  .footer-sponsors-wrap { margin-bottom:2rem; display:none; }
+  .footer-sponsors-label { font-size:.62rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.22); margin-bottom:.75rem; font-weight:600; }
+  .footer-sponsors-row { display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; }
+  .footer-ig { display:inline-flex; align-items:center; gap:.4rem; color:rgba(255,255,255,.38); text-decoration:none; font-size:.8rem; font-weight:600; letter-spacing:1px; margin-bottom:1.5rem; transition:color .2s; }
+  .footer-ig:hover { color:#fff; }
+  .footer-links { display:flex; justify-content:center; gap:1.75rem; list-style:none; margin-bottom:2rem; flex-wrap:wrap; }
+  .footer-links a { color:rgba(255,255,255,.35); text-decoration:none; font-size:.78rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; transition:color .2s; }
+  .footer-links a:hover { color:#fff; }
+  .footer-copy { font-size:.7rem; color:rgba(255,255,255,.18); }
+
+  /* WhatsApp */
+  .wa-fab { position:fixed; bottom:1.5rem; right:1.5rem; background:#25D366; color:#fff; border-radius:50%; width:56px; height:56px; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 18px rgba(37,211,102,.45); z-index:90; text-decoration:none; transition:transform .2s; }
+  .wa-fab:hover { transform:scale(1.1); }
+
+  /* Animaciones */
+  .fade { opacity:0; transform:translateY(16px); transition:opacity .55s,transform .55s; }
+  .fade.visible { opacity:1; transform:translateY(0); }
+  .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#inicio" class="nav-logo">
+    <div class="nav-escudo" style="background:none; padding:2px;">
+  <img src="escudo.png" alt="Sinergia F.C" style="width:90px; height:90px; object-fit:contain;">
+</div>
+    SINERGIA <span>&nbsp;F.C</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#nosotros">Nosotras</a></li>
+    <li><a href="#staff">Staff</a></li>
+    <li><a href="#sedes">Sede</a></li>
+    <li><a href="#precios">Precios</a></li>
+    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="https://instagram.com/sinergia.f5" target="_blank" style="display:flex;align-items:center;gap:.35rem;color:rgba(255,255,255,.55)!important">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @sinergia.f5
+    </a></li>
+    <li><a href="#inscripcion" class="nav-cta">Inscribirme</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero-lines"></div>
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Escuela de Fútbol 5 Femenino · Resistencia, Chaco</div>
+    <div class="hero-escudo-grande" style="background:none; border:none; box-shadow:none;">
+  <img src="escudo.png" alt="Sinergia F.C" style="width:289px; height:289px; object-fit:contain;">
+</div>
+    <h1 class="hero-title">SINERGIA<br><span class="fc">F.C</span></h1>
+    <p class="hero-sub">Resistencia · Chaco · Argentina</p>
+    <p class="hero-slogan">Vení a aprender, competir y divertirte con nosotras. Un espacio para mujeres que quieran jugar sin límites ni exclusividades.</p>
+    <div class="hero-btns">
+      <a href="#inscripcion" class="btn-main">Quiero inscribirme</a>
+      <a href="#nosotros" class="btn-ghost">Conocer más</a>
+    </div>
+    <a href="https://instagram.com/sinergia.f5" target="_blank" class="hero-ig">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @sinergia.f5
+    </a>
+  </div>
+  <div class="hero-cesped"></div>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-n" id="cnt-alumnas">0</span><span class="stat-l">Alumnas</span></div>
+    <div class="stat"><span class="stat-n">1</span><span class="stat-l">Sede</span></div>
+    <div class="stat"><span class="stat-n">3</span><span class="stat-l">Días/semana</span></div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="container">
+    <div class="nosotros-grid">
+      <div class="nosotros-text fade">
+        <div class="section-label">¿Qué es Sinergia F.C?</div>
+        <h2 class="section-title">No somos un club tradicional</h2>
+        <p class="nosotros-frase">Somos un espacio pensado para mujeres que quieran jugar, crecer y competir sin límites ni exclusividades.</p>
+        <p>Creemos en un fútbol más abierto, donde cada jugadora tenga la libertad de crecer, compartir y competir a su manera.</p>
+        <div class="podes-titulo">Acá podés:</div>
+        <ul class="podes-lista">
+          <li>Entrenar y potenciar tu juego</li>
+          <li>Conectar con otras jugadoras</li>
+          <li>Formar tu propio equipo</li>
+          <li>Competir con chicas de la comunidad y otros equipos</li>
+          <li class="sin">Sin restricciones</li>
+          <li class="sin">Sin ataduras a un solo equipo</li>
+        </ul>
+        <p>Los pagos son mensuales e incluyen cancha + clases personalizadas. Cada turno es hasta agotar cupos, ¡no te quedés sin el tuyo!</p>
+      </div>
+      <div class="fade d2">
+        <div class="cancha-card">
+          <div class="cancha-field">
+            <div class="cf-vline"></div>
+            <div class="cf-circle"></div>
+            <div class="cf-goal top"></div>
+            <div class="cf-goal bot"></div>
+            <div class="dot r" style="left:28%;top:20%"></div>
+            <div class="dot r" style="left:28%;top:50%"></div>
+            <div class="dot r" style="left:28%;top:80%"></div>
+            <div class="dot r" style="left:42%;top:35%"></div>
+            <div class="dot r" style="left:42%;top:65%"></div>
+            <div class="dot v" style="left:72%;top:20%"></div>
+            <div class="dot v" style="left:72%;top:50%"></div>
+            <div class="dot v" style="left:72%;top:80%"></div>
+            <div class="dot v" style="left:58%;top:35%"></div>
+            <div class="dot v" style="left:58%;top:65%"></div>
+          </div>
+          <div class="cancha-nombre">Cancha Seven</div>
+          <div class="cancha-dir">📍 RN16 KM 13.6 · Resistencia, Chaco</div>
+          <div class="cancha-horarios">
+            <div class="ch-item"><span class="ch-dia">Lunes</span><span class="ch-hora">20:00 — 21:00</span></div>
+            <div class="ch-item"><span class="ch-dia">Miércoles</span><span class="ch-hora">20:00 — 21:00</span></div>
+            <div class="ch-item"><span class="ch-dia">Viernes</span><span class="ch-hora">20:00 — 21:00</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAFF -->
+<section id="staff">
+  <div class="container">
+    <div class="section-label">El equipo detrás</div>
+    <h2 class="section-title">Nuestro staff</h2>
+    <div class="staff-grid">
+      <div class="staff-card fade">
+        <div class="staff-photo" style="background:linear-gradient(160deg,#4A0F18,#1C3A10);">
+          <div class="staff-avatar">F</div>
+          <div class="staff-rol">Director técnico</div>
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">Profe Facu</div>
+          <div class="staff-desc">Director técnico de Sinergia F.C.</div>
+          <a href="tel:3624296974" class="staff-tel">📞 3624 296974</a>
+        </div>
+      </div>
+      <!-- Para agregar más staff, duplicar el bloque .staff-card -->
+    </div>
+  </div>
+</section>
+
+<!-- SEDES -->
+<section id="sedes">
+  <div class="container">
+    <div class="section-label">Dónde entrenamos</div>
+    <h2 class="section-title">Sede y horarios</h2>
+    <div class="sedes-grid">
+      <div class="sede-card fade">
+        <div class="sede-num">01</div>
+        <div class="sede-nombre">Cancha Seven</div>
+        <div class="sede-dir">📍 RN16 KM 13.6 · Resistencia, Chaco</div>
+        <div class="horarios-list">
+          <div class="horario-item"><span class="hor-dia">Lunes</span><span class="hor-hora">20:00 — 21:00 hs</span></div>
+          <div class="horario-item"><span class="hor-dia">Miércoles</span><span class="hor-hora">20:00 — 21:00 hs</span></div>
+          <div class="horario-item"><span class="hor-dia">Viernes</span><span class="hor-hora">20:00 — 21:00 hs</span></div>
+        </div>
+        <div class="sede-nota">Cupos limitados por turno. Consultá disponibilidad antes de inscribirte.</div>
+      </div>
+      <!-- Para agregar más sedes, duplicar el bloque .sede-card -->
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section id="precios">
+  <div class="container">
+    <div class="section-label">Planes</div>
+    <h2 class="section-title">Precios y modalidades</h2>
+    <p class="precios-nota">Los pagos son <strong>mensuales</strong> e incluyen cancha + clases personalizadas. Cupos limitados por turno.</p>
+    <div class="precios-grid">
+      <div class="plan fade">
+        <div class="plan-dias">1 día por semana</div>
+        <div class="plan-precio"><span>$</span>25.000</div>
+        <div class="plan-periodo">por mes · 4 clases al mes</div>
+        <ul class="plan-features">
+          <li>Cancha incluida</li>
+          <li>Clases personalizadas</li>
+          <li>Ideal para empezar</li>
+        </ul>
+        <a href="#inscripcion" class="btn-plan btn-outline">Elegir este plan</a>
+      </div>
+      <div class="plan destacado fade d1">
+        <div class="plan-badge">Más elegido</div>
+        <div class="plan-dias">2 días por semana</div>
+        <div class="plan-precio"><span>$</span>30.000</div>
+        <div class="plan-periodo">por mes · 8 clases al mes</div>
+        <ul class="plan-features">
+          <li>Cancha incluida</li>
+          <li>Clases personalizadas</li>
+          <li>Mejor progreso técnico</li>
+          <li>Grupo de WhatsApp</li>
+        </ul>
+        <a href="#inscripcion" class="btn-plan btn-solid">Inscribirme ahora</a>
+      </div>
+      <div class="plan fade d2">
+        <div class="plan-dias">3 días por semana</div>
+        <div class="plan-precio"><span>$</span>36.000</div>
+        <div class="plan-periodo">por mes · 12 clases al mes</div>
+        <ul class="plan-features">
+          <li>Cancha incluida</li>
+          <li>Clases personalizadas</li>
+          <li>Máximo desarrollo</li>
+          <li>Prioridad en torneos</li>
+        </ul>
+        <a href="#inscripcion" class="btn-plan btn-outline">Elegir este plan</a>
+      </div>
+    </div>
+    <p class="precios-aviso">* Precios Abril 2025. Consultar por promociones grupales.</p>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section id="sponsors">
+  <div class="container">
+    <div class="section-label">Nos apoyan</div>
+    <h2 class="section-title">Sponsors y aliados</h2>
+    <p class="sponsors-subtitulo">Gracias a quienes hacen posible que Sinergia siga creciendo.</p>
+    <div class="sponsors-grid" id="sponsors-grid">
+      <div class="sponsors-placeholder">
+        <p>¿Querés ser sponsor de Sinergia F.C?<br>
+        <strong>Escribinos a @sinergia.f5 o al 3624 296974</strong><br>
+        y charlamos cómo podemos trabajar juntos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPCIÓN -->
+<section id="inscripcion">
+  <div class="container">
+    <div class="form-layout">
+      <div class="form-side fade">
+        <div class="section-label">Unite al equipo</div>
+        <h2 class="section-title">Inscripción online</h2>
+        <p>Completá el formulario y en segundos le llega un mensaje al Profe Facu con todos tus datos. Te confirma el lugar por WhatsApp.</p>
+        <div class="form-pasos">
+          <div class="form-paso"><div class="paso-num">1</div><div>Completás el formulario con tus datos y elegís el plan.</div></div>
+          <div class="form-paso"><div class="paso-num">2</div><div>Al Profe Facu le llega tu info por WhatsApp al instante.</div></div>
+          <div class="form-paso"><div class="paso-num">3</div><div>Te confirma el cupo y te manda el link de pago.</div></div>
+          <div class="form-paso"><div class="paso-num">✓</div><div>Pagás y quedás inscripta. ¡Bienvenida a Sinergia F.C!</div></div>
+        </div>
+      </div>
+      <div class="fade d1">
+        <div class="inscripcion-form">
+          <div id="alerta-ok" class="alerta ok">¡Mensaje enviado al Profe Facu! Pronto te confirma tu lugar. 🎉</div>
+          <div id="alerta-err" class="alerta err">Algo salió mal. Escribí directo al 3624 296974.</div>
+          <form id="form-inscripcion" novalidate>
+            <div class="form-row">
+              <div class="fg"><label>Nombre y apellido *</label><input type="text" id="nombre" placeholder="María González" required></div>
+              <div class="fg"><label>Edad *</label><input type="number" id="edad" placeholder="25" min="10" max="70" required></div>
+            </div>
+            <div class="form-row">
+              <div class="fg"><label>Teléfono *</label><input type="tel" id="telefono" placeholder="3624 000000" required></div>
+              <div class="fg"><label>Email</label><input type="email" id="email" placeholder="maria@email.com"></div>
+            </div>
+            <div class="fg"><label>Plan elegido *</label>
+              <select id="plan" required>
+                <option value="">Elegir plan...</option>
+                <option value="1 día por semana — $25.000/mes">1 día por semana — $25.000/mes</option>
+                <option value="2 días por semana — $30.000/mes">2 días por semana — $30.000/mes</option>
+                <option value="3 días por semana — $36.000/mes">3 días por semana — $36.000/mes</option>
+              </select>
+            </div>
+            <div class="fg"><label>¿Tenés experiencia previa?</label>
+              <select id="experiencia">
+                <option value="Sin experiencia — es mi primera vez">Sin experiencia — primera vez</option>
+                <option value="Principiante — jugué poco">Principiante — jugué poco</option>
+                <option value="Intermedia — juego hace tiempo">Intermedia — juego hace tiempo</option>
+                <option value="Avanzada — compito regularmente">Avanzada — compito regularmente</option>
+              </select>
+            </div>
+            <div class="fg"><label>Observaciones</label><textarea id="obs" placeholder="¿Tenés alguna consulta, lesión o algo que quieras contarnos?"></textarea></div>
+            <button type="submit" class="btn-form">Enviar inscripción por WhatsApp</button>
+            <p class="form-nota">📲 Tu mensaje va directo al Profe Facu · 3624 296974</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-escudo" style="background:none;">
+  <img src="escudo.png" alt="Sinergia F.C" style="width:200px; height:200px; object-fit:contain;">
+</div>
+  <div class="footer-logo">SINERGIA <span>F.C</span></div>
+  <div class="footer-tag">Escuela de Fútbol 5 Femenino · Resistencia, Chaco</div>
+
+  <div class="footer-sponsors-wrap" id="footer-sponsors-wrap">
+    <div class="footer-sponsors-label">Sponsors</div>
+    <div class="footer-sponsors-row" id="footer-sponsors-row"></div>
+  </div>
+
+  <a href="https://instagram.com/sinergia.f5" target="_blank" class="footer-ig">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    @sinergia.f5
+  </a>
+  
+  <ul class="footer-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#nosotros">Nosotras</a></li>
+    <li><a href="#sedes">Sede</a></li>
+    <li><a href="#precios">Precios</a></li>
+    <li><a href="#inscripcion">Inscribirse</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Sinergia F.C · Resistencia, Chaco · Todos los derechos reservados</div>
+</footer>
+  
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/543624296974?text=Hola%20Profe%20Facu!%20Vi%20la%20web%20de%20Sinergia%20F.C%20y%20quiero%20m%C3%A1s%20info%20%F0%9F%8F%83%E2%80%8D%E2%99%80%EF%B8%8F"
+   class="wa-fab" target="_blank" title="Escribile al Profe Facu">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+// ════════════════════════════════════════════════════
+//  SPONSORS — Agregá acá cuando los tengas
+//  Si el array está vacío muestra el placeholder
+// ════════════════════════════════════════════════════
+const SPONSORS = [
+  // Descomentá y completá con datos reales:
+  // {
+  //   nombre: "Nombre del sponsor",
+  //   desc:   "Descripción corta.",
+  //   tag:    "Categoría",
+  //   logo:   "",          // URL de imagen, o "" para usar iniciales
+  //   link:   "https://",
+  // },
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Sponsors — sección principal
+  const grid = document.getElementById('sponsors-grid');
+  if (SPONSORS.length > 0) {
+    grid.innerHTML = SPONSORS.map(s => {
+      const ini  = s.nombre.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+      const logo = s.logo ? `<img src="${s.logo}" alt="${s.nombre}">` : ini;
+      return `<a href="${s.link}" target="_blank" rel="noopener" class="sponsor-card fade">
+        <div class="sponsor-logo">${logo}</div>
+        <div class="sponsor-nombre">${s.nombre}</div>
+        <div class="sponsor-desc">${s.desc}</div>
+        <span class="sponsor-tag">${s.tag}</span>
+      </a>`;
+    }).join('');
+  }
+
+  // Sponsors — footer
+  const fWrap = document.getElementById('footer-sponsors-wrap');
+  const fRow  = document.getElementById('footer-sponsors-row');
+  if (SPONSORS.length > 0) {
+    fWrap.style.display = 'block';
+    fRow.innerHTML = SPONSORS.map(s => {
+      const ini  = s.nombre.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+      const logo = s.logo
+        ? `<img src="${s.logo}" alt="${s.nombre}" style="width:100%;height:100%;object-fit:contain;padding:6px">`
+        : `<span style="font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:900;color:#9B2535">${ini}</span>`;
+      return `<a href="${s.link}" target="_blank" rel="noopener"
+        title="${s.nombre}"
+        style="display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none;opacity:.6;transition:opacity .2s"
+        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">
+        <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;overflow:hidden">${logo}</div>
+        <span style="font-size:.62rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.35)">${s.nombre}</span>
+      </a>`;
+    }).join('');
+  }
+
+  // Scroll fade
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold:.1 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+  // Counter alumnas
+  const heroObs = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    const el = document.getElementById('cnt-alumnas');
+    if (!el) return;
+    let v = 0; const target = 30;
+    const t = setInterval(() => { v++; el.textContent = Math.min(v,target); if(v>=target) clearInterval(t); }, 40);
+    heroObs.disconnect();
+  }, { threshold:.5 });
+  const hs = document.getElementById('inicio');
+  if (hs) heroObs.observe(hs);
+});
+
+// Formulario → WhatsApp
+document.getElementById('form-inscripcion').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const nombre      = document.getElementById('nombre').value.trim();
+  const edad        = document.getElementById('edad').value.trim();
+  const telefono    = document.getElementById('telefono').value.trim();
+  const email       = document.getElementById('email').value.trim();
+  const plan        = document.getElementById('plan').value;
+  const experiencia = document.getElementById('experiencia').value;
+  const obs         = document.getElementById('obs').value.trim();
+
+  if (!nombre || !edad || !telefono || !plan) {
+    mostrarAlerta('err','Por favor completá nombre, edad, teléfono y plan.');
+    return;
+  }
+
+  const msg = [
+    `🏃‍♀️ *Nueva inscripción — Sinergia F.C*`,
+    ``,
+    `👤 *Nombre:* ${nombre}`,
+    `🎂 *Edad:* ${edad} años`,
+    `📱 *Teléfono:* ${telefono}`,
+    email ? `📧 *Email:* ${email}` : null,
+    `💳 *Plan:* ${plan}`,
+    `⚽ *Experiencia:* ${experiencia}`,
+    obs  ? `📝 *Obs:* ${obs}` : null,
+    ``,
+    `_Desde el sitio web de Sinergia F.C_`,
+  ].filter(Boolean).join('\n');
+
+  window.open(`https://wa.me/543624296974?text=${encodeURIComponent(msg)}`,'_blank');
+  mostrarAlerta('ok','¡Mensaje enviado al Profe Facu! Pronto te confirma tu lugar. 🎉');
+  this.reset();
+});
+
+function mostrarAlerta(tipo, msg) {
+  ['ok','err'].forEach(t => { const el=document.getElementById(`alerta-${t}`); el.style.display='none'; el.textContent=''; });
+  const el = document.getElementById(`alerta-${tipo}`);
+  el.textContent = msg; el.style.display = 'block';
+  el.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  setTimeout(() => el.style.display='none', 7000);
+}
+</script>
+</body>
+</html>
